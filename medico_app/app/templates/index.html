@@ -1,0 +1,20 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gerenciador de Consultas</title>
+</head>
+<body>
+    <h1>Consultas Agendadas</h1>
+    <a href="{{ url_for('main.nova_consulta') }}">Nova Consulta</a>
+    <ul>
+        {% for consulta in consultas %}
+        <li>
+            {{ consulta.paciente }} - {{ consulta.data }} -
+            <a href="{{ url_for('main.editar_consulta', id=consulta.id) }}">Editar</a> -
+            <a href="{{ url_for('main.deletar_consulta', id=consulta.id) }}">Deletar</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
